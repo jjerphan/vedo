@@ -466,6 +466,7 @@ class Plotter:
         bg2=None,
         axes=settings.defaultAxesType,
         sharecam=True,
+        legendSize=0.15,
         verbose=False,
         interactive=None,
         offscreen=False,
@@ -504,7 +505,7 @@ class Plotter:
         self.title = title  # window title
         self.sharecam = sharecam  # share the same camera if multiple renderers
         self._legend = []  # list of legend entries for actors
-        self.legendSize = 0.15  # size of legend
+        self.legendSize = legendSize  # size of legend
         self.legendBC = (0.96, 0.96, 0.9)  # legend background color
         self.legendPos = 2  # 1=topright, 2=top-right, 3=bottom-left
         self.picked3d = None  # 3d coords of a clicked point on an actor
@@ -1407,6 +1408,7 @@ class Plotter:
         bg2_ = options.pop("bg2", None)
         axes_ = options.pop("axes", None)
         q = options.pop("q", False)
+        legendSize = options.pop("legendSize", 0.15)
 
         if not settings.notebookBackend:
             if bg_ is not None:
